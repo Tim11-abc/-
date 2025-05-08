@@ -68,9 +68,77 @@
 							    <img src="images/fulls/阿里山.jpg" alt="圖片描述" style="max-width: 100%; height: auto;" />
 							    <figcaption>這是我去阿里山看日出的照片</figcaption>
 							</figure>
+							
 
 							 
-						</div>
+						</div><!-- Three -->
+<section id="three">
+    <header class="major">
+        <h2>爬蟲成果展示</h2>
+    </header>
+
+    <p>
+        本專案使用 Python 撰寫爬蟲，從 PTT 八卦板擷取文章資訊，包含標題、作者與推文數。以下展示整體流程、程式碼重點、資料範例與圖表成果。
+    </p>
+
+    <h3>📋 爬蟲流程</h3>
+    <ol>
+        <li>用 <code>requests</code> 送出 GET 請求（含成年確認）</li>
+        <li>用 <code>BeautifulSoup</code> 解析 HTML 結構</li>
+        <li>擷取每篇文章的標題、作者、推文數</li>
+        <li>資料儲存成 CSV，進行後續視覺化</li>
+    </ol>
+
+    <h3>💻 核心程式碼片段</h3>
+    <pre><code>
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://www.ptt.cc/bbs/Gossiping/index.html"
+res = requests.get(url, cookies={'over18': '1'})
+soup = BeautifulSoup(res.text, 'html.parser')
+
+for post in soup.select('.r-ent'):
+    title = post.select_one('.title').text.strip()
+    author = post.select_one('.author').text.strip()
+    push = post.select_one('.nrec').text.strip()
+    print(title, author, push)
+    </code></pre>
+
+    <h3>📂 資料範例</h3>
+    <table border="1" cellpadding="6">
+        <thead>
+            <tr>
+                <th>標題</th>
+                <th>作者</th>
+                <th>推文數</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>[問卦] 今天台中怎麼那麼熱？</td>
+                <td>coldguy</td>
+                <td>67</td>
+            </tr>
+            <tr>
+                <td>[爆卦] 八卦板又當機了？</td>
+                <td>pttadmin</td>
+                <td>125</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>📊 成果圖表</h3>
+    <figure>
+        <img src="images/fulls/wordcloud.jpg" alt="熱門關鍵字雲" style="max-width: 100%;" />
+        <figcaption>▲ 熱門關鍵字雲</figcaption>
+    </figure>
+    <figure>
+        <img src="images/fulls/bar_chart.jpg" alt="推文數長條圖" style="max-width: 100%;" />
+        <figcaption>▲ 推文數統計長條圖</figcaption>
+    </figure>
+</section>
+
 						
 					</section>
 
