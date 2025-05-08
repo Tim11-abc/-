@@ -72,74 +72,121 @@
 
 							 
 						</div><!-- Three -->
-<section id="three">
-    <header class="major">
-        <h2>爬蟲成果展示</h2>
+<!DOCTYPE HTML>
+<!-- Strata by HTML5 UP -->
+<html>
+  <head>
+    <title>我的個人網頁</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="is-preload">
+
+    <!-- Header -->
+    <header id="header">
+      <div class="inner">
+        <a href="#" class="image avatar"><img src="images/avatar.jpg" alt="頭像" /></a>
+        <h1><strong>嗨，我是某某某</strong><br />歡迎來到我的個人網站</h1>
+      </div>
     </header>
 
-    <p>
-        本專案使用 Python 撰寫爬蟲，從 PTT 八卦板擷取文章資訊，包含標題、作者與推文數。以下展示整體流程、程式碼重點、資料範例與圖表成果。
-    </p>
+    <!-- Main -->
+    <div id="main">
 
-    <h3>📋 爬蟲流程</h3>
-    <ol>
-        <li>用 <code>requests</code> 送出 GET 請求（含成年確認）</li>
-        <li>用 <code>BeautifulSoup</code> 解析 HTML 結構</li>
-        <li>擷取每篇文章的標題、作者、推文數</li>
-        <li>資料儲存成 CSV，進行後續視覺化</li>
-    </ol>
+      <!-- Intro -->
+      <section id="one">
+        <header class="major">
+          <h2>關於我</h2>
+        </header>
+        <p>這裡可以寫簡單的自我介紹，像是學校、科系、興趣等等。</p>
+      </section>
 
-    <h3>💻 核心程式碼片段</h3>
-    <pre><code>
-import requests
+      <!-- Web Scraping Project Section -->
+      <section id="two">
+        <h2>爬蟲成果展示</h2>
+        <p>這一區展示了我的爬蟲專案，包括資料、圖表與程式碼講解。</p>
+        <ul>
+          <li>🔍 爬取對象：某論壇 / 電商網站 / 開放資料</li>
+          <li>📊 分析內容：如熱門關鍵字、價格走勢、評論情感等</li>
+          <li>🛠️ 使用技術：Python + requests + BeautifulSoup / Selenium</li>
+        </ul>
+        <p>以下是專案成果圖表與部分核心程式碼展示：</p>
+        <pre><code>import requests
 from bs4 import BeautifulSoup
 
-url = "https://www.ptt.cc/bbs/Gossiping/index.html"
-res = requests.get(url, cookies={'over18': '1'})
-soup = BeautifulSoup(res.text, 'html.parser')
+url = "https://example.com"
+res = requests.get(url)
+soup = BeautifulSoup(res.text, "html.parser")
+data = soup.find_all("div", class_="item")</code></pre>
+        <p>資料視覺化圖表：</p>
+        <img src="images/sample-chart.png" alt="爬蟲圖表示意" style="max-width:100%; height:auto;">
+      </section>
 
-for post in soup.select('.r-ent'):
-    title = post.select_one('.title').text.strip()
-    author = post.select_one('.author').text.strip()
-    push = post.select_one('.nrec').text.strip()
-    print(title, author, push)
-    </code></pre>
+      <!-- Life Gallery Section -->
+      <section id="life" class="main">
+        <header class="major">
+          <h2>生活紀錄</h2>
+          <p>記錄下那些有意義的時刻</p>
+        </header>
+        <div class="spotlights">
 
-    <h3>📂 資料範例</h3>
-    <table border="1" cellpadding="6">
-        <thead>
-            <tr>
-                <th>標題</th>
-                <th>作者</th>
-                <th>推文數</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>[問卦] 今天台中怎麼那麼熱？</td>
-                <td>coldguy</td>
-                <td>67</td>
-            </tr>
-            <tr>
-                <td>[爆卦] 八卦板又當機了？</td>
-                <td>pttadmin</td>
-                <td>125</td>
-            </tr>
-        </tbody>
-    </table>
+          <!-- 大統盃 -->
+          <section>
+            <a href="#" class="image"><img src="images/大統盃.jpg" alt="大統盃合照" /></a>
+            <div class="content">
+              <div class="inner">
+                <h3>大統盃回憶</h3>
+                <p>我們資科系參加銘傳大學舉辦的大統盃比賽，留下熱血青春的回憶，期待明年再戰！</p>
+              </div>
+            </div>
+          </section>
 
-    <h3>📊 成果圖表</h3>
-    <figure>
-        <img src="images/fulls/wordcloud.jpg" alt="熱門關鍵字雲" style="max-width: 100%;" />
-        <figcaption>▲ 熱門關鍵字雲</figcaption>
-    </figure>
-    <figure>
-        <img src="images/fulls/bar_chart.jpg" alt="推文數長條圖" style="max-width: 100%;" />
-        <figcaption>▲ 推文數統計長條圖</figcaption>
-    </figure>
-</section>
+          <!-- 阿里山 -->
+          <section>
+            <a href="#" class="image"><img src="images/阿里山.jpg" alt="阿里山日出" /></a>
+            <div class="content">
+              <div class="inner">
+                <h3>特富野古道晨曦</h3>
+                <p>特富野古道清晨的陽光，喚醒了山林間的寧靜，這是一次讓心靈重新充電的旅程。</p>
+              </div>
+            </div>
+          </section>
 
-						
-					</section>
+          <!-- 美國村 -->
+          <section>
+            <a href="#" class="image"><img src="images/美國村.jpg" alt="陽明山美國村" /></a>
+            <div class="content">
+              <div class="inner">
+                <h3>陽明山的復古時光</h3>
+                <p>陽明山美國村的老宅與經典老車，是我拍攝中最喜歡的復古風景之一。</p>
+              </div>
+            </div>
+          </section>
 
-				
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <ul class="icons">
+        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+        <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+      </ul>
+      <ul class="copyright">
+        <li>&copy; 2025 我的個人網站</li>
+      </ul>
+    </footer>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+  </body>
+</html>
