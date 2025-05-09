@@ -109,19 +109,46 @@
       <section id="two">
         <h2>爬蟲成果展示</h2>
         <p>這一區展示了我的爬蟲專案，包括資料、圖表與程式碼講解。</p>
-        <ul>
-          <li>🔍 爬取對象：某論壇 / 電商網站 / 開放資料</li>
-          <li>📊 分析內容：如熱門關鍵字、價格走勢、評論情感等</li>
-          <li>🛠️ 使用技術：Python + requests + BeautifulSoup / Selenium</li>
-        </ul>
+        
         <p>以下是專案成果圖表與部分核心程式碼展示：</p>
-        <pre><code>import requests
-from bs4 import BeautifulSoup
+        <pre><code>"""
+pip install selenium webdriver_manager
+"""
 
-url = "https://example.com"
-res = requests.get(url)
-soup = BeautifulSoup(res.text, "html.parser")
-data = soup.find_all("div", class_="item")</code></pre>
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException
+from selenium import webdriver
+import time
+	</code></pre>
+	<pre><code>options = webdriver.ChromeOptions()
+options.add_argument("--disable-blink-features=AutomationControlled")
+
+driver = webdriver.Chrome(
+    service=webdriver.chrome.service.Service(ChromeDriverManager().install()),
+    options=options
+)
+# 啟動瀏覽器
+driver.get("https://www.cwa.gov.tw/V8/C/E/index.html")
+driver.maximize_window()
+
+# 模擬滾動頁面
+for _ in range(2):
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    time.sleep(2)
+
+
+titles = driver.find_elements(By.CSS_SELECTOR, ".eq-infor a")
+for t in titles:
+    print(t.text)
+driver.quit()
+	
+	
+	</code></pre>
         <p>資料視覺化圖表：</p>
         <img src="images/sample-chart.png" alt="爬蟲圖表示意" style="max-width:100%; height:auto;">
       </section>
