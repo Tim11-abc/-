@@ -1,33 +1,16 @@
-Strata by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+# 薛育庭
 
+## 專案介紹
+這是個人網頁展示一些生活照及爬蟲成果
 
-A simple, minimalist template that actually began life as an unused redesign of my
-personal site. Includes a (configurable) parallax background effect, Poptrox-powered
-lightbox gallery, a bunch of pre-styled elements, and Sass sources for the Sass-inclined.
+## 網頁連結
+[點我前往](https://tim11-abc.github.io/-/#)
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+## 頁面簡介
+index.html:自我介紹/生活照/爬蟲結果
 
-(* = Not included)
+## 使用技術
+HTML /CSS /Github Pages
 
-Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
-
-AJ
-aj@lkn.io | @ajlkn
-
-PS: Not sure how to get that contact form working? Give formspree.io a try (it's awesome).
-
-
-Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other:
-		jQuery (jquery.com)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+## 作者
+靜宜大學資科系學生，聯絡方式:s11201145@O365.st.pu.edu.tw。
